@@ -1,5 +1,6 @@
 .router
 .qoder
+.env
 
 # Logs
 logs
