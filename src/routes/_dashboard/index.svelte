@@ -1,11 +1,11 @@
 <script lang="ts">
     import { client } from "$lib/rpc";
 
-    const test = await client.ping()
+    const test = await client.ping();
 
     async function ping() {
-        const ping = await client.ping()
-        console.log(ping)
+        const ping = await client.ping();
+        console.log(ping);
     }
 </script>
 

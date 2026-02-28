@@ -1,9 +1,13 @@
 <script lang="ts">
-import type { Snippet } from 'svelte';
+    import type { Snippet } from "svelte";
 
-	let { children }: { children: Snippet } = $props();
+    let { children }: { children: Snippet } = $props();
 </script>
 
-<div class="container mx-auto">
-	{@render children()}
+<div
+    class="min-h-screen container mx-auto flex flex-col items-center justify-center"
+>
+    <div class="flex flex-col max-w-120 w-full">
+        {@render children()}
+    </div>
 </div>

@@ -20,6 +20,7 @@ export default defineConfig({
     serverDir: "./src",
     experimental: {
       tasks: true,
+      asyncContext: true,
     },
   },
 });
