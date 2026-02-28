@@ -1,0 +1,12 @@
+{
+  "extends": ["@tsconfig/svelte/tsconfig.json", "./.router/tsconfig.json"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "$assets/*": ["./src/assets/*"],
+      "$lib/*": ["./src/lib/*"],
+      "$router": ["./.router/router"]
+    }
+  },
+  "include": ["src"]
+}

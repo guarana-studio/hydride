@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "basecoat-css";
+
+* {
+  --font-sans: "Geist Variable", sans-serif;
+}
