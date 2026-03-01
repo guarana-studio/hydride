@@ -2,7 +2,7 @@
     import { authClient } from "$lib/auth-client";
     import { client } from "$lib/rpc";
     import { toast } from "$lib/ui";
-    import { XIcon } from "@lucide/svelte";
+    import { KeyIcon, XIcon } from "@lucide/svelte";
 
     const me = await client.users.me();
     const { data: passkeys } = await authClient.passkey.listUserPasskeys();
@@ -96,9 +96,10 @@
                     <h3 class="font-semibold">Passkeys</h3>
                     {#each passkeys as passkey}
                         <div
-                            class="flex items-center justify-between border rounded-lg p-2"
+                            class="flex items-center justify-between border rounded-lg p-2 gap-2"
                         >
-                            <span>
+                            <KeyIcon size={16} class="ml-2" />
+                            <span class="flex-1">
                                 {passkey.id}
                             </span>
                             <button
