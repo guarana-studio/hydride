@@ -59,18 +59,31 @@
             navigate("/");
         },
     });
+
+    async function signInWithPasskey() {
+        const { error } = await authClient.signIn.passkey({
+            autoFill: false,
+        });
+        if (error) {
+            return toast({
+                title: "Error signing in with passkey",
+                category: "error",
+            });
+        }
+        navigate("/");
+    }
 </script>
 
-<form class="form grid gap-6" use:form.handler>
-    <div>
-        <a href={p("/")} class="btn-link pl-0">
+<form class="card form grid gap-6" use:form.handler>
+    <header>
+        <a href={p("/")} class="btn-link pl-0 justify-start">
             <ArrowLeftIcon />
             <span>Return to home</span>
         </a>
-    </div>
-    <fieldset class="fieldset">
         <legend>Sign In</legend>
         <p>Enter your email below to receive a verification code.</p>
+    </header>
+    <section class="fieldset">
         <div class="field">
             <label for="emailAddress">Email Address</label>
             <input
@@ -99,15 +112,21 @@
                 {/if}
             </div>
         {/if}
-    </fieldset>
-    <button type="submit" class="btn"
-        >{form.data.step === "requestOtp"
-            ? "Send Verification Code"
-            : "Verify Code"}</button
-    >
-    <hr class="my-4 border-border" />
-    <button type="button" class="btn-secondary">
-        <KeyIcon />
-        <span>Sign In with Passkey</span>
-    </button>
+    </section>
+    <footer class="flex-col">
+        <button type="submit" class="btn w-full"
+            >{form.data.step === "requestOtp"
+                ? "Send Verification Code"
+                : "Verify Code"}</button
+        >
+        <hr class="my-4 border-border" />
+        <button
+            type="button"
+            class="btn-secondary w-full"
+            onclick={signInWithPasskey}
+        >
+            <KeyIcon />
+            <span>Sign In with Passkey</span>
+        </button>
+    </footer>
 </form>

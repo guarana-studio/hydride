@@ -1,14 +1,11 @@
-import type { Database, Schema } from "$lib/server/db";
+import { auth } from "$lib/server/auth";
 import { os } from "@orpc/server";
-import type { Session, User } from "better-auth";
+import type { useStorage } from "nitro/storage";
 
 export const base = os
   .$context<{
     headers: Headers;
-    db: Database;
-    schema: Schema;
-    user: User | undefined;
-    session: Session | undefined;
+    kv: ReturnType<typeof useStorage>;
   }>()
   .errors({
     BAD_REQUEST: {},
@@ -18,3 +15,20 @@ export const base = os
     TOO_MANY_REQUESTS: {},
     INTERNAL_SERVER_ERROR: {},
   });
+
+export const authMiddleware = base.middleware(async ({ context, next, errors }) => {
+  const sessionData = await auth.api.getSession({
+    headers: context.headers,
+  });
+  if (!sessionData?.session || !sessionData?.user) {
+    throw errors.UNAUTHORIZED();
+  }
+  return next({
+    context: {
+      session: sessionData.session,
+      user: sessionData.user,
+    },
+  });
+});
+
+export const authorized = base.use(authMiddleware);

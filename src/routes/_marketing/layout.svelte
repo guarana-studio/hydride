@@ -7,7 +7,5 @@
 
 <div class="flex flex-col min-h-screen">
     <TopBar />
-    <div class="flex flex-col container mx-auto p-2 flex-1">
-        {@render children()}
-    </div>
+    {@render children()}
 </div>
