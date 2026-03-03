@@ -133,6 +133,38 @@ bun run dev
 
 ````
 
+## Guides
+
+### Routing
+
+### Styling
+
+### Background Tasks
+
+### KV Storage
+
+### Prerendering
+
+### Deployment
+
+#### Zero-Config Providers
+
+https://v3.nitro.build/deploy#zero-config-providers
+
+#### Railpack
+
+https://railpack.com/
+
+## Recipes
+
+### Payments processing
+
+### Multi-tenancy
+
+### Analytics & Observability
+
+### Internationalization
+
 ## Resources
 
 ### Roadmap
