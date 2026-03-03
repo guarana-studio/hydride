@@ -11,6 +11,54 @@ topBar:
 
 # Hydride
 
+A hybrid [Vite](https://vite.dev/) application starter kit combining a [Svelte](https://svelte.dev/) Single Page Application with a [Nitro](https://v3.nitro.build/)‑based backend - optimized for agentic development workflows and designed to take your ideas from concept to production in days.
+
+Hydride removes the overhead of assembling a modern full-stack architecture from scratch. It provides a single codebase, a single deployment target, and a fully integrated stack - so you can skip the configuration and focus on building your product.
+
+## Introduction
+
+### Features
+
+#### Hybrid Server
+
+The application server is capable of serving both the Svelte SPA frontend and API Route-based backend from a single process. This unified architecture eliminates the need to deploy and manage separate services for each end of your application.
+
+#### File System Routing
+
+Hydride provides a unified `src/routes` directory for both Svelte pages and API Routes. The Svelte router supports nested layouts and route guards, enabling you to enforce access control declaratively.
+
+#### Backend–Frontend Communication
+
+[oRPC](https://orpc.dev/) is integrated out of the box to streamline communication between the backend and frontend. Define and invoke remote procedures through a fully type-safe API that conforms to the OpenAPI specification.
+
+#### Type-Safe Database Access
+
+[Drizzle ORM](https://orm.drizzle.team/) comes preconfigured as a headless TypeScript ORM, letting you compose queries and mutations in an idiomatic, type-safe manner without sacrificing flexibility.
+
+#### Built-In Authentication
+
+[Better Auth](https://better-auth.com/) is preconfigured so you can avoid building authentication from scratch or depending on a third-party service. The base configuration supports Email OTP and Passkey sign-in out of the box.
+
+#### Refined Styling
+
+The template ships with [Tailwind CSS](https://tailwindcss.com/), [Basecoat UI](https://basecoatui.com/), [Lucide Icons](https://lucide.dev/), and the Geist typeface - a cohesive foundation for building clean, minimalist interfaces.
+
+#### Expressive Forms
+
+Building schema-validated forms with meaningful, user-facing error messages is straightforward with Hydride's integrated form handling primitives.
+
+#### Background Tasks
+
+Schedule and execute background tasks, monitor their progress, and surface status updates to the user when long-running operations complete.
+
+#### Key-Value Storage
+
+A built-in key-value store enables shared context across API Routes and Background Tasks. Persistence is available through a Redis-compatible driver for production use cases.
+
+#### Developer Experience First
+
+Hydride pushes the boundaries of end-to-end type safety with typed environment variables, a preconfigured linter, and an opinionated code formatter - so your tooling stays consistent from day one.
+
 ## Getting started
 
 ### Prerequisite
@@ -84,3 +132,26 @@ bun run dev
 ==
 
 ````
+
+## Resources
+
+### Roadmap
+
+#### To do
+
+- [ ] Simple admin panel with orpc and `drizzle-crud`
+- [ ] Marketing pages prerendering
+- [ ] Guide and SKILL.md to enable payments
+- [ ] Guide to enable multi-tenancy
+
+#### Done
+
+- [x] Basic styling with Tailwind, and Basecoat
+- [x] KV Storage enabled
+- [x] Background tasks enabled
+- [x] Linter and formatter settings
+- [x] Type-safe environment variables
+- [x] Type-safe forms
+- [x] ORPC integration
+- [x] ORM integration with Drizzle
+- [x] Authentication with Better Auth
